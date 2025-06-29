@@ -1,0 +1,43 @@
+import java.util.Scanner;
+
+public class SimpleCurrencyConverter {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Currency Converter");
+        System.out.println("Available currencies: USD, INR, EUR");
+
+        System.out.print("Enter amount: ");
+        double amount = sc.nextDouble();
+
+        System.out.print("From currency (USD/INR/EUR): ");
+        String from = sc.next();
+
+        System.out.print("To currency (USD/INR/EUR): ");
+        String to = sc.next();
+
+        double converted = 0;
+
+        // Fixed conversion rates (example)
+        if (from.equalsIgnoreCase("USD") && to.equalsIgnoreCase("INR")) {
+            converted = amount * 83.0;
+        } else if (from.equalsIgnoreCase("INR") && to.equalsIgnoreCase("USD")) {
+            converted = amount / 83.0;
+        } else if (from.equalsIgnoreCase("USD") && to.equalsIgnoreCase("EUR")) {
+            converted = amount * 0.91;
+        } else if (from.equalsIgnoreCase("EUR") && to.equalsIgnoreCase("USD")) {
+            converted = amount / 0.91;
+        } else if (from.equalsIgnoreCase("INR") && to.equalsIgnoreCase("EUR")) {
+            converted = amount / 91.0;
+        } else if (from.equalsIgnoreCase("EUR") && to.equalsIgnoreCase("INR")) {
+            converted = amount * 91.0;
+        } else if (from.equalsIgnoreCase(to)) {
+            converted = amount;
+        } else {
+            System.out.println("Invalid currency input.");
+            return;
+        }
+
+        System.out.println(amount + " " + from.toUpperCase() + " = " + converted + " " + to.toUpperCase());
+    }
+}
