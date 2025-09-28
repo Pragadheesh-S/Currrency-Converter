@@ -18,7 +18,7 @@ public class SimpleCurrencyConverter {
 
         double converted = 0;
 
-        // Fixed conversion rates (example)
+    
         if (from.equalsIgnoreCase("USD") && to.equalsIgnoreCase("INR")) {
             converted = amount * 83.0;
         } else if (from.equalsIgnoreCase("INR") && to.equalsIgnoreCase("USD")) {
